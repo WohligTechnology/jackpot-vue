@@ -17,6 +17,7 @@
 import SmartHeader from '@/components/SmartHeader'
 import JackpotBox from '@/components/JackpotBox'
 import JackpotApi from '@/services/api/JackpotServer'
+import _ from 'lodash'
 export default {
   name: 'jackpot-screen',
 
@@ -34,7 +35,6 @@ export default {
 
   methods: {
     getJackpots (id) {
-      this.gameType = id
       JackpotApi.getJackpots(id)
         .then(data => {
           this.jackpots = data.data
@@ -43,13 +43,25 @@ export default {
   },
 
   watch: { // Watching route params & getting the jackpots on change
-    '$route.params.gameType': function () {
-      this.getJackpots(this.$route.params.gameType)
+    '$route.params.gameType': function (gameType) {
+      this.gameType = _.upperFirst(gameType)
+      this.getJackpots(this.gameType)
     }
   },
 
   created () {
-    this.getJackpots(this.$route.params.gameType)
+    this.gameType = _.upperFirst(this.$route.params.gameType)
+    this.getJackpots(this.gameType)
+
+    const gameUpdate = this.gameType + 'Update'
+    this.$options.sockets[gameUpdate] = (data) => {
+      this.jackpots = data
+    }
+
+    const gameWinner = this.gameType + 'Winner'
+    this.$options.sockets[gameWinner] = (data) => {
+      this.jackpots = data.jackpots
+    }
   }
 }
 </script>
