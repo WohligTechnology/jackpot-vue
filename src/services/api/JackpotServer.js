@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const hostname = window.location.hostname
-const baseURL = `http://${hostname}:1337/api/`
+const baseURL = `http://${window.location.hostname}:1337/api/`
+
 axios.defaults.baseURL = baseURL
 
 export default {

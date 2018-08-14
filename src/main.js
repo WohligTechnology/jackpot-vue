@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import VueSocketio from 'vue-socket.io'
 
 Vue.config.productionTip = false
-Vue.use(VueSocketio, 'http://localhost:1337')
+
+Vue.use(VueSocketio, `http://${window.location.hostname}:1337`)
 
 /* eslint-disable no-new */
 new Vue({

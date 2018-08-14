@@ -1,7 +1,6 @@
 <template>
   <div>
     <smart-header v-bind:value="gameType"></smart-header>
-    <span>Jackpot Screen</span>
     <div class="row">
       <jackpot-box
       ref="jackpot"
