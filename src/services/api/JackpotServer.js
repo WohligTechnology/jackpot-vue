@@ -1,12 +1,13 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:1337/api/'
+const hostname = window.location.hostname
+const baseURL = `http://${hostname}:1337/api/`
+axios.defaults.baseURL = baseURL
 
 export default {
   getJackpots (gameType) {
     return axios({
       method: 'post',
-      baseURL: baseURL,
       url: '/Jackpot/getJackpotForGame',
       data: {
         gameType: gameType

@@ -28,15 +28,28 @@ export default {
   data () {
     return {
       jackpots: [],
-      gameType: this.$route.params.gameType
+      gameType: ''
+    }
+  },
+
+  methods: {
+    getJackpots (id) {
+      this.gameType = id
+      JackpotApi.getJackpots(id)
+        .then(data => {
+          this.jackpots = data.data
+        })
+    }
+  },
+
+  watch: { // Watching route params & getting the jackpots on change
+    '$route.params.gameType': function () {
+      this.getJackpots(this.$route.params.gameType)
     }
   },
 
   created () {
-    JackpotApi.getJackpots(this.gameType)
-      .then(data => {
-        this.jackpots = data.data
-      })
+    this.getJackpots(this.$route.params.gameType)
   }
 }
 </script>
