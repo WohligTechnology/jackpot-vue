@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Advanced Led Board';
+    src: url('../fonts/advanced_led_board_7.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather_regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather_bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/oswald_regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-led {
+    font-family: 'Advanced Led Board';
+}
+
+.font-merri-reg {
+    font-family: 'Merriweather';
+}
+
+.font-merri-bold {
+    font-family: 'Merriweather';
+    font-weight: bold;
+}
+
+.font-oswald {
+    font-family: 'Oswald';
+}

@@ -11,4 +11,9 @@ export default {
 </script>
 
 <style>
+@import './assets/styles/fonts.css';
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 </style>

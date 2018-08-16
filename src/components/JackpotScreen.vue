@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="full-height bg">
     <smart-header v-bind:value="gameType"></smart-header>
     <div class="row">
       <jackpot-box
@@ -17,6 +17,7 @@ import SmartHeader from '@/components/SmartHeader'
 import JackpotBox from '@/components/JackpotBox'
 import JackpotApi from '@/services/api/JackpotServer'
 import _ from 'lodash'
+
 export default {
   name: 'jackpot-screen',
 
@@ -67,4 +68,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.full-height {
+  height: 100vh;
+}
+.bg {
+  background-image: url('./../assets/images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
 </style>
