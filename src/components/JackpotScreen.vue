@@ -1,13 +1,15 @@
 <template>
   <div class="full-height bg">
     <smart-header v-bind:value="gameType"></smart-header>
-    <div class="row">
-      <jackpot-box
-      ref="jackpot"
-      v-for="jackpot in jackpots"
-      v-bind:value="jackpot"
-      v-bind:key="jackpot._id"
-      ></jackpot-box>
+    <div class="container-fluid">
+      <div class="row" :class="jackpots.length">
+        <jackpot-box
+        ref="jackpot"
+        v-for="jackpot in jackpots"
+        v-bind:value="jackpot"
+        v-bind:key="jackpot._id"
+        ></jackpot-box>
+      </div>
     </div>
   </div>
 </template>

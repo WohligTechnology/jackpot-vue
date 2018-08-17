@@ -1,14 +1,16 @@
 <template>
-  <div class="winner-row font-led text-left">
+  <div class="winner-row font-led text-left" :class="value.name">
     <div class="row-1">
-      <span class="float-right">{{value.prizeMoney}}</span>
+      <span class="float-right">RS {{value.prizeMoney}}</span>
       <span>{{value.name}}</span>
     </div>
     <div class="row-2">
+      <div class="float-right">
+        <span class="color-2">Table {{value.tableNumber}}</span>
+        <span class="color-2">Pocket {{value.pocketNumber}}</span>
+      </div>
       <span class="color-1">{{value.date | moment('dMMMYY')}}</span>
       <span class="color-1">{{value.date | moment('h:mmA')}}</span>
-      <span class="color-2">Table {{value.tableNumber}}</span>
-      <span class="color-2">Pocket {{value.pocketNumber}}</span>
     </div>
   </div>
 </template>
@@ -31,21 +33,32 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .row-1 {
-  font-size: 22px;
-  background: -webkit-linear-gradient(#eee, #333);
+  font-size: 20px;
+  background: -webkit-linear-gradient(#f5f5f5, #c482ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.row-2 {
+  font-size: 18px;
 }
 .color-1 {
-  font-size: 20px;
-  background: -webkit-linear-gradient(#eee, #333);
+  background: -webkit-linear-gradient(#a0f8ff, #3ae4f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.color-2 {
+  background: -webkit-linear-gradient(#f6ff82, #fcfddc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.color-2 {
-  font-size: 20px;
-  background: -webkit-linear-gradient(#eee, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.winner-row {
+  border-top: 2px solid #b8fbff;
+  padding: 10px 20px;
+  box-shadow: 0 -5px 15px -5px rgba(41, 242, 253, 0.8), inset 0 5px 8px -4px rgba(41, 242, 253, 0.8);
+}
+.opace > div{
+  opacity: 0;
 }
 </style>
