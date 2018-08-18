@@ -2,12 +2,13 @@
   <div class="full-height bg">
     <smart-header v-bind:value="gameType"></smart-header>
     <div class="container-fluid">
-      <div class="row" :class="jackpots.length">
+      <div class="row" :class="'jackpot-size-'+jackpots.length">
         <jackpot-box
         ref="jackpot"
         v-for="jackpot in jackpots"
         v-bind:value="jackpot"
         v-bind:key="jackpot._id"
+        :col="col"
         ></jackpot-box>
       </div>
     </div>
@@ -31,7 +32,8 @@ export default {
   data () {
     return {
       jackpots: [],
-      gameType: ''
+      gameType: '',
+      col: ''
     }
   },
 
@@ -41,6 +43,23 @@ export default {
         .then(data => {
           this.jackpots = data.data
         })
+    },
+    columnValue: function (data) {
+      if (data.length > 6) {
+        this.col = 'col-md-3'
+      } else if (data.length === 6) {
+        this.col = 'col-md-4'
+      } else if (data.length === 5) {
+        this.col = 'col-md-4'
+      } else if (data.length === 4) {
+        this.col = 'col-md-6'
+      } else if (data.length === 3) {
+        this.col = 'col-md-6'
+      } else if (data.length === 2) {
+        this.col = 'col-md-6'
+      } else if (data.length === 1) {
+        this.col = 'col-md-5'
+      }
     }
   },
 
@@ -48,6 +67,9 @@ export default {
     '$route.params.gameType': function (gameType) {
       this.gameType = _.upperFirst(gameType)
       this.getJackpots(this.gameType)
+    },
+    'jackpots': function (data) {
+      this.columnValue(data)
     }
   },
 

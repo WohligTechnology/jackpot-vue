@@ -1,0 +1,91 @@
+/* JACKPOT SIZE 1 */
+
+.jackpot-size-1 {
+  display: block;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.jackpot-size-1 .jackpot-col {
+  display: inline-block;
+}
+
+.jackpot-size-1 .pot-money-outline {
+  padding: 20px 10px 0 !important;
+}
+
+.jackpot-size-1 .pot-money h1 {
+  font-size: 80px !important;
+}
+
+.jackpot-size-1 .game-type h2 {
+  font-size: 40px !important;
+}
+
+.jackpot-size-1 .row-1 {
+  font-size: 33px !important;
+}
+
+.jackpot-size-1 .row-2 {
+  font-size: 30px !important;
+}
+
+/* JACKPOT SIZE 1 */
+
+/* JACKPOT SIZE 2 */
+
+.jackpot-size-2 {
+  margin-top: 60px;
+}
+
+.jackpot-size-2 .pot-money-outline {
+  padding: 20px 10px 0 !important;
+}
+
+.jackpot-size-2 .pot-money h1 {
+  font-size: 65px !important;
+}
+
+.jackpot-size-2 .game-type h2 {
+  font-size: 40px !important;
+}
+
+.jackpot-size-2 .row-1 {
+  font-size: 33px !important;
+}
+
+.jackpot-size-2 .row-2 {
+  font-size: 30px !important;
+}
+
+.jackpot-size-2 {
+    width: 80%;
+    margin: 90px auto 0;
+}
+/* JACKPOT SIZE 2 */
+
+
+/* JACKPOT SIZE 4, 5, 6, 7 */
+.jackpot-size-4, .jackpot-size-3 {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.jackpot-size-6,.jackpot-size-5  {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+.jackpot-size-3,
+.jackpot-size-5,
+.jackpot-size-7 {
+  display: block;
+  text-align: center;
+}
+
+.jackpot-size-3 .jackpot-col,
+.jackpot-size-5 .jackpot-col,
+.jackpot-size-7 .jackpot-col {
+  display: inline-block;
+}
+/* JACKPOT SIZE 4, 5, 6, 7 */

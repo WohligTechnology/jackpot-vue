@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-3 text-center">
+    <div class="text-center jackpot-col" :class="col">
       <div class="jackpot-box">
         <div class="jackpot-box-outline">
           <div class="d-block">
@@ -46,7 +46,6 @@ export default {
     Winner,
     ICountUp
   },
-
   watch: { // Watching route params & getting the jackpots on change
     'value.currentPot': function (val) {
       this.endVal = val
@@ -61,7 +60,7 @@ export default {
 
   data () {
     return {
-      startVal: 0,
+      startVal: this.value.currentPot,
       endVal: this.value.currentPot,
       decimals: 0,
       duration: 4,
@@ -107,7 +106,7 @@ export default {
     }
   },
 
-  props: ['value']
+  props: ['value', 'col']
 }
 </script>
 
@@ -169,5 +168,4 @@ export default {
   border-radius: 20px;
   box-shadow: 0 0 45px rgba(41, 242, 253, 0.8);
 }
-@import './assets/styles/fonts.css';
 </style>
