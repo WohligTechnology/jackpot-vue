@@ -24,10 +24,11 @@
             </div>
           </div>
           <winner
-            v-for="winner in value.previousWinners"
+            v-for="(winner, index) in value.previousWinners"
             v-bind:key="winner.index"
             v-bind:value="winner"
             v-if="value.previousWinners"
+            :index="index"
           ></winner>
         </div>
       </div>
@@ -38,7 +39,6 @@
 import Winner from '@/components/Winner'
 import ICountUp from 'vue-countup-v2'
 import _ from 'lodash'
-import moment from 'moment'
 
 export default {
   name: 'jackpot-box',
@@ -84,21 +84,21 @@ export default {
         _.times(3, function () {
           data.push({
             name: 'opace',
-            date: moment().toDate()
+            date: '2018-08-18T08:09:47.545Z'
           })
         })
       } else if (data.length === 1) {
         _.times(2, function () {
           data.push({
             name: 'opace',
-            date: moment().toDate()
+            date: '2018-08-18T08:09:47.545Z'
           })
         })
       } else if (data.length === 2) {
         _.times(1, function () {
           data.push({
             name: 'opace',
-            date: moment().toDate()
+            date: '2018-08-18T08:09:47.545Z'
           })
         })
       }
@@ -125,7 +125,7 @@ export default {
   border: 2px solid white;
   border-radius: 15px;
   padding: 12px 22px 0 25px;
-  box-shadow: inset 0 0 55px rgba(255, 0, 0, 0.25);
+  box-shadow: inset 0 0 55px rgba(255, 212, 0, 0.10);
   width: 100%;
 }
 .pot-money {

@@ -1,16 +1,18 @@
 <template>
   <div class="winner-row font-led text-left" :class="value.name">
-    <div class="row-1">
-      <span class="float-right">RS {{value.prizeMoney}}</span>
-      <span>{{value.name}}</span>
-    </div>
-    <div class="row-2">
-      <div class="float-right">
-        <span class="color-2">Table {{value.tableNumber}}</span>
-        <span class="color-2">Pocket {{value.pocketNumber}}</span>
+    <div class="anime" :class="animationClass">
+      <div class="row-1">
+        <span class="float-right">RS {{value.prizeMoney}}</span>
+        <span>{{value.name}}</span>
       </div>
-      <span class="color-1">{{value.date | moment('dMMMYY')}}</span>
-      <span class="color-1">{{value.date | moment('h:mmA')}}</span>
+      <div class="row-2">
+        <div class="float-right">
+          <span class="color-2">Table {{value.tableNumber}}</span>
+          <span class="color-2">Pocket {{value.pocketNumber}}</span>
+        </div>
+        <span class="color-1">{{value.date | moment('DMMMYY')}}</span>
+        <span class="color-1">{{value.date | moment('h:mmA')}}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -19,7 +21,24 @@
 import moment from 'moment'
 export default {
   name: 'winner',
-  props: ['value'],
+  props: ['value', 'index'],
+  watch: {
+    'value': function (a, b) {
+      if (a.name + a.date !== b.name + b.date) {
+        if (this.index === 0) {
+          this.animationClass = 'pulse animated infinite'
+          setTimeout(() => {
+            this.animationClass = ''
+          }, 30000)
+        }
+      }
+    }
+  },
+  data () {
+    return {
+      animationClass: ''
+    }
+  },
   filters: {
     moment: function (value1, value2) {
       if (value1) {
@@ -58,7 +77,7 @@ export default {
   padding: 10px 20px;
   box-shadow: 0 -5px 15px -5px rgba(41, 242, 253, 0.8), inset 0 5px 8px -4px rgba(41, 242, 253, 0.8);
 }
-.opace > div{
-  opacity: 0;
+.opace .anime > div {
+  opacity: 0 !important;
 }
 </style>
